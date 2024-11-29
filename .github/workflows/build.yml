@@ -1,0 +1,13 @@
+name: Build & Push to container registry
+
+on:
+  release:
+    types: [created]
+  push:
+    branches:
+      - master
+
+jobs:
+  docker:
+    uses: kakushindev/workflows/.github/workflows/build-docker-image.yml@main
+    secrets: inherit
